@@ -6,7 +6,6 @@ import org.example.model.Student;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Grouping {
 
@@ -17,7 +16,7 @@ public class Grouping {
                 .collect(Collectors.groupingBy(Employee::getName));
     }
 
-    public void creatingLinkedHashMapFromList (List<Employee> employeeList){
+    public void creatingLinkedHashMapFromList(List<Employee> employeeList) {
         LinkedHashMap<String, List<Integer>> map = employeeList
                 .stream()
                 .collect(Collectors.groupingBy(
@@ -48,7 +47,7 @@ public class Grouping {
                 .max(Map.Entry.comparingByValue());
     }
 
-    public void countFrequencyOfChar(String str){
+    public void countFrequencyOfChar(String str) {
         Map<Character, Long> charFreq = str
                 .chars()
                 .mapToObj(ch -> (char) ch)
@@ -56,14 +55,14 @@ public class Grouping {
 
     }
 
-    public void sortByName(List<Student> students){
+    public void sortByName(List<Student> students) {
         List<Student> sortedStudentList = students
                 .stream()
                 .sorted(Comparator.comparing(Student::getName).thenComparing(Student::getAge))
                 .collect(Collectors.toList());
     }
 
-    public void createMapWithDuplicateKey(List<Employee> employeeList){
+    public void createMapWithDuplicateKey(List<Employee> employeeList) {
         LinkedHashMap<String, Integer> mapWithDuplicateKey = employeeList
                 .stream()
                 .collect(Collectors.toMap(
